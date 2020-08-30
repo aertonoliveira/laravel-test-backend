@@ -13,6 +13,21 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+
+
+
+Route::post('/imovel', 'ImovelController@store');
+Route::get('/imovel', 'ImovelController@index');
+Route::get('/imoveis', 'ImovelController@countImoveis');
+Route::get('/imovel/nao_associado', 'ImovelController@imoveisNaoAssociados');
+Route::delete('/imovel/{id}', 'ImovelController@destroy');
+
+
+
+Route::get('/estado', 'EstadoController@index');
+Route::get('/estado/cidade/{id}', 'CidadeController@index');
+
+Route::post('/contrato', 'ContratoController@store');
+Route::get('/contrato', 'ContratoController@index');
+Route::get('/contratos', 'ContratoController@countContratos');
+Route::delete('/contrato/{id}', 'ContratoController@destroy');

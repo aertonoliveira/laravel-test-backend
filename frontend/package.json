@@ -1,0 +1,51 @@
+{
+  "name": "bootstrap-vue-example",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "lint": "vue-cli-service lint"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "bootstrap": "^4.5.2",
+    "bootstrap-vue": "^2.16.0",
+    "v-mask": "^2.2.1",
+    "vee-validate": "^3.3.9",
+    "vue": "^2.6.12",
+    "vue-toastification": "^1.7.6",
+    "vuejs-paginate": "^2.1.0",
+    "vuex": "^3.5.1"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^3.0.0",
+    "@vue/cli-plugin-eslint": "^3.0.0",
+    "@vue/cli-service": "^3.0.0",
+    "vue-template-compiler": "^2.6.12"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ]
+}
