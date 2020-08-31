@@ -30,7 +30,17 @@ export default{
         },
         updateCountImoveis(state, payload) {
             state.count_imoveis = payload;
-        }, 
+        },
+        filtroImoveis(state, payload){
+            console.log(payload)
+            state.imoveis = state.imoveis.slice().sort((a, b) => {
+                if(payload.desc) {
+                    return (a[payload.campo] > b[payload.campo]) ? -1 : 1;
+                }else{
+                    return (a[payload.campo] > b[payload.campo]) ? 1 : -1;                
+                }
+            }) 
+        } 
     },
     actions:{
         cadastrarImovel({commit,dispatch },payload){
@@ -64,7 +74,6 @@ export default{
             ImovelService.consultarImoveisNaoAssociados()
             .then((response) => {
               commit('updateImoveisNaoAssociado', response.data.data)
-              
             })
             .catch((e) => {
                 Vue.$toast.error(Utils.mensagemErro(e.response.data.errors));          
@@ -85,12 +94,15 @@ export default{
                 dispatch('consultarImoveis');
                 dispatch('countImoveis');
                 dispatch('countContratos');
-
             })
             .catch((e) => {
                 Vue.$toast.error(Utils.mensagemErro(e.response.data.errors));          
             });
+        },
+        filtroImoveis({commit},payload){
+            commit('filtroImoveis',payload)
         }
+
 
     }
 }

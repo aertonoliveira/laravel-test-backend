@@ -7,14 +7,14 @@
               <table class="table striped mb-12 text-md">
             <thead>
                 <tr>
-                    <th><a href="#" @click.prevent.stop="sortBy('email')">Email do proprietário</a></th>
-                    <th><a href="#" @click.prevent.stop="sortBy('street')">Endereço</a></th>
+                    <th><a href="#" @click.prevent.stop="orderBy('email')">Email do proprietário</a></th>
+                    <th>Endereço</th>
                     <th>Status</th>
                     <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="imovel in getImoveis" :key="imovel.id">
+                <tr v-for="imovel in this.$store.state.imovel.imoveis" :key="imovel.id">
                     <td>{{imovel.email}}</td>
                     <td>{{imovel.bairro}}, {{imovel.numero}}, {{imovel.cidade.cidade}}, {{imovel.estado.estado}}</td>
                     <td width="10%">
@@ -51,7 +51,9 @@ export default {
    data() {
         return {
             currentPage:1,
-            pageOfItems: []
+            pageOfItems: [],
+            campo: 'email',
+            desc: false
         };
     },
     methods: {
@@ -60,6 +62,13 @@ export default {
         },
          excluir (id) {
             this.$store.dispatch('excluirImovel',id) 
+        },
+        orderBy(campo) {
+            const payload ={
+              desc:  !this.desc ,
+              campo: campo
+            }
+            this.$store.dispatch('filtroImoveis',payload) 
         },
     },
   computed:{
