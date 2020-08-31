@@ -25,8 +25,8 @@
                         </span>
                     </td>
                     <td width="5%">
-                        <a title="Apagar"  @click.stop.prevent="" href="" @click="excluir(imovel.id)">
-                            remove
+                        <a  @click.stop.prevent="" href="" @click="excluir(imovel.id)">                            
+                            <b-icon icon="trash-fill" font-scale="1"></b-icon>
                         </a>
                     </td>
                 </tr>

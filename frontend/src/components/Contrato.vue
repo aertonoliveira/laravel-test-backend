@@ -101,8 +101,6 @@
         <b-overlay :show="loadingCadastro" rounded opacity="0.6" spinner-small spinner-variant="primary" class="d-inline-block">
             <button @click.prevent.stop="cadastroContrato" href="#" class="btn btn-primary" :disabled="invalid">Salvar</button>
         </b-overlay>
-        
-        <a @click.prevent.stop="close" href="#" class="btn btn-default">Cancelar</a>
     </div>
     </ValidationObserver>
   </div>
